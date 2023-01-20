@@ -21,6 +21,7 @@ export const IntroImage = styled.div`
 
     img{
         border-radius: 1rem;
+        max-width: 100%;
     }
 `
 export const IntroText = styled.div`
@@ -33,6 +34,7 @@ export const IntroText = styled.div`
         justify-content: space-between;
         margin-bottom: 0.5rem;
         margin-top: 0.5rem;
+        flex: 1;
 
         a{
             color: ${(props) => props.theme['blue']};

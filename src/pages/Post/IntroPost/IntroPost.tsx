@@ -1,6 +1,15 @@
 import { PostTitle } from "./styles";
+import { relativeDateFormatter } from "../../../utils/formatter";
+import { IPost } from "../../Home/Home";
 
-export function IntroPost() {
+interface PostHeaderProps {
+  postData: IPost;
+  isLoading: boolean;
+}
+
+export function IntroPost({ postData }: PostHeaderProps) {
+  const formattedDate = relativeDateFormatter(postData?.created_at);
+
   return (
     <PostTitle>
       <div>
@@ -12,17 +21,14 @@ export function IntroPost() {
         </span>
       </div>
       <div>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{postData.title}</h1>
       </div>
       <div>
         <span>
-          <a href="/">cameronwill</a>
+          <a href="/">{formattedDate}</a>
         </span>
         <span>
-          <a href="/">Há 1 dia</a>
-        </span>
-        <span>
-          <a href="/">5 comentários</a>
+          <a href="/">{postData.comments} comentários</a>
         </span>
       </div>
     </PostTitle>
